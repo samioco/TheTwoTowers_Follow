@@ -1,0 +1,197 @@
+#CLASS 0
+$CLASS = "Tools|Follow|Settings"
+#VAR FollowBot {} {} VAR
+
+#TR OsgiliathGates {^triggered!  doing: knock on gates} {
+#IF (%roomname()="The East gate of Osgiliath") {#MO W;trigger off}
+} $CLASS
+
+#TR OsgiliathUdungul {triggered!  doing: climb through window} {#IF ((%pos("Osgiliath",%zonename())) && (%roomname()="A dead end")) {#MO N}
+} $CLASS
+
+#TR MordorGates {triggered!  doing: 2knock on gate} {
+#SW (%roomname()="In front of the Morgul gate") {#MO E
+} (%roomname()="Behind the Morgul gate") {#MO W
+} (%roomname()="At the gate") {#MO S
+} (%roomname()="Inside Mordor") {#MO N}
+#IF (@PK) {#6 {kill  @Tar;#WAIT 500}}
+} $CLASS
+
+#TR CarchostPushSlab {triggered!  doing: push slab} {
+#SW (%roomname()="A hallway in the Carchost") {#MO N;AHB_UlkhaladsVaultPushSlab
+} (%roomname()="A tight dreary passage") {#MO S;AHB_CarchostWell}
+} $CLASS
+
+#TR CarchostWell {triggered!  doing: do look in hole,2e,search wall} {
+#IF (%roomname="Carchost's storage room") {TE CarWellOut}} $CLASS
+
+#TR CirithUngolBalcony {triggered!  doing: leap off balcony} {#IF (%roomname()="The officers' messhall") {#MO S}} $CLASS
+
+#TR MinasMorgulRanger {triggered!  doing: do feel moss,squeeze through crack} {
+#IF ((%pos("Minas Morgul",%zonename())) && (%roomname()="A dead end")) {#MO E}
+} $CLASS
+
+#TR MinasMorgulWreckage {triggered!  doing: traverse wreckage} {
+#SW (%lower(%roomid())=%lower("WreckOut")) {#MO E
+} (%lower(%roomid())=%lower("WreckIn")) {#MO W}
+#IF (@PK) {#6 {kill @Tar;#WAIT 500}}
+} $CLASS
+
+
+#TR BeornPebbles {triggered!  doing: 2d} {
+#IF (%lower(%roomid())=%lower("Pebbles")) {TE CarrockLanding}
+} $CLASS
+
+#TR CorsairKeepFireplace {triggered!  doing: push stone} {
+#IF (%roomname()="A large walk-in fireplace") {#MO SW}
+} $CLASS
+
+#TR CorsairKeepThief {triggered!  doing: do examine bushes,look tunnel,crawl through tunnel} {
+#IF (%roomname()="A trail outside the city walls of Umbar") {#MO W}
+} $CLASS
+
+#TR DunCampRope {triggered!  doing: remove *,climb rope} {
+#IF (%roomname()="Outside of Camp") {#MO N}
+} $CLASS
+
+#TR EdorasEmblem {triggered!  doing: place hand on emblem} {
+#IF ((%pos("Amruin",%zonename())) && (%roomname()="Guild Entrance")) {#MO SE}
+} $CLASS
+
+#TR EdorasMaiden {triggered!  doing: touch maiden} {
+#IF ((%pos("Edoras",%zonename())) && (%roomname()="The Upstairs Landing")) {#TE edomaiden_out}
+} $CLASS
+
+#TR EreborGetGold {triggered!  doing: get gold} {
+#IF (%lower(%roomid())=%lower("EreLin")) {#MO SE}
+} $CLASS
+
+#TR EreborThorin {triggered!  doing: push lower rock} {
+#IF (%lower(%roomid())=%lower("Thorin")) {#MO NE}
+} $CLASS
+
+#TR EreborThrain {triggered!  doing: scramble over boulder} {
+#IF (%roomname()="A cobweb filled room") {#MO W}
+} $CLASS
+
+#TR GondorMudslide {triggered!  doing: slide down mud} {
+#IF (%roomname()="The top of a mud flow") {#MO E}
+} $CLASS
+
+#TR GondorSapphireSword {triggered!  doing: move vines} {
+#IF (%roomname()="A large courtyard, covered in vines") {#MO N}
+} $CLASS
+
+#TR GreyMtnsElvenShield {triggered!  doing: turn torch} {
+#IF (%lower(%roomid())=%lower("ElvenShield")) {#MO N}
+} $CLASS
+
+#TR HarondorMound {triggered!  doing: do look mound,examine mound} {
+#IF (%lower(%roomid())=%lower("mound")) {TE MoundIn}
+} $CLASS
+
+#TR HarondorEnormousScythe {triggered!  doing: search brambles} {
+#SW (%roomname()="A wall of brambles") {#MO E
+} (%roomname()="A garden surrounded by a wall of thorns") {#MO W}
+} $CLASS
+
+#TR KadarThief {triggered!  doing: do look marks,push wall} {
+#IF (%roomname()="A small dirt road") {#MO W}
+} $CLASS
+
+#TR LinhirTree {triggered!  doing: climb down} {
+#IF (%roomname()="In the branches of a large tree") {#MO D}
+} $CLASS
+
+#TR IsengardLivingStaff {triggered!  doing: climb into crack} {
+#IF (%roomname()="The entrance to Isengard") {#MO D}
+} $CLASS
+
+#TR LothlorienDWH {triggered!  doing: push brush} {
+#IF (%roomname()="An abandoned cottage") {#MO N}
+} $CLASS
+
+#TR LothlorienWaterfall {triggered!  doing: *climb waterfall} {
+#IF (%roomname()="By a small waterfall") {#MO E}
+} $CLASS
+
+#TR MinasTirithCellar {triggered!  doing: leap into cellar} {
+#IF (%roomname()="Old guest house") {#MO D}
+} $CLASS
+
+#TR MirkwoodELSCaptain {triggered!  doing: down} {
+#IF (%roomname()="A Platform in the Tree") {#MO D}
+} $CLASS
+
+#TR MirkwoodELSTree {triggered!  doing: do climb ladder} {
+#IF (%roomname()="The Base of a Mighty Tree") {#MO U}
+} $CLASS
+
+#TR MirkwoodSpiderTree {triggered!  doing: climb tree} {
+#IF (%roomname()="The Spider's Ring") {#MO U}
+} $CLASS
+
+#TR MistyMtnsShimring {triggered!  doing: squeeze through crevice} {
+#IF (%roomname()="The southwest corner of the cave") {#MO E}
+} $CLASS
+
+#TR MoriaHealer {triggered!  doing: do search behind counter,crawl into hole} {
+#IF (%roomname()="An abandoned tavern") {#MO E}
+} $CLASS
+
+#TR MoriaMoss {triggered!  doing: dig in dust} {
+#IF (%lower(%roomid())=%lower("Moss")) {#MO N}
+} $CLASS
+
+
+#TR PelargirBell {triggered!  doing: n} {
+#IF (%roomname()="In Stitches") {#MO N}
+} $CLASS
+
+#TR PelargirTable {triggered!  doing: jump over table} {
+#SW (%lower(%roomid())="FingerlessGloves") {#MO E} (%lower(%roomid())="PelTable") {#MO W}
+} $CLASS
+
+#TR PetrForestPerath {triggered!  doing: uproot log} {
+#IF (%lower(%roomid())=%lower("Perath")) {#MO D}
+} $CLASS
+
+#TR RhovEmeraldShield {triggered!  doing: crawl behind shrub} {
+#IF (%roomname()="A small valley") {#MO NW}
+} $CLASS
+
+#TR RhovSapphireStaff {triggered!  doing: *climb} {
+#SW (%roomname()="A side yard of a house") {#MO S
+} (%roomname()="The middle of an oak tree") {#MO N}
+} $CLASS
+
+#TR RhunWell {triggered!  doing: descend down stairs} {
+#IF (%roomname()="An abandoned courtyard") {#MO D}
+} $CLASS
+
+#TR RivendellBell {triggered!  doing: ring bell} {
+#IF (%roomname()="The Bell Tower") {#MO D}
+} $CLASS
+
+#TR RivendellVines {triggered!  doing: push vines aside} {
+#IF (%roomname()="Vegetable garden") {#MO E}
+} $CLASS
+
+#TR TelsharCrypt {triggered!  doing: do lift lid,leap hole} {
+#IF ((%pos("Telshar Crypt",%zonename())) && (%roomname()="A crypt")) {#MO E}
+} $CLASS
+
+#TR ThranduilsGates {triggered!  doing: knock on gates} {
+#IF (%roomname()="The gates to Thranduil's kingdom") {#MO S}
+} $CLASS
+
+#TR UmbarOakBow {triggered!  doing: climb up wreckage} {
+#IF (%lower(%roomid())=%lower("OakBow")) {#MO U}
+} $CLASS
+
+#TR Vala {triggered!  doing: slip through undergrowth} {
+#IF (%roomname()="The Foothills of the Misty Mountains") {#MO N}
+} $CLASS
+
+#CLASS $CLASS 0
+#CLASS 0
