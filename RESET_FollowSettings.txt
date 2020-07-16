@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_FollowSettings#CLASS 0#AL RESET_FollowSettings {#CLASS 0
 $CLASS = "Tools|Follow|Settings"
 #VAR FollowBot {} {} VAR
 
@@ -194,4 +194,4 @@ $CLASS = "Tools|Follow|Settings"
 } $CLASS
 
 #CLASS $CLASS 0
-#CLASS 0
+#CLASS 0} _Follow#CLASS 0

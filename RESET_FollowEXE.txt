@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_FollowEXE#CLASS 0#AL RESET_FollowEXE {#CLASS 0
 $CLASS = "Tools|Follow|EXE"
 
 #AL FollowOn {#VAR FollowBot {1} {} VAR;#CLASS Follow|Settings 1;SysMsg Follow ON!} $CLASS
@@ -288,4 +288,4 @@ MyProfileVars
 } (@FollowBot) {trigger You are unable to follow @PartyLeader further. todo slip through undergrowth}
 } $CLASS
 
-#CLASS 0
+#CLASS 0} _Follow#CLASS 0

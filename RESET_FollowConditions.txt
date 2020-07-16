@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_FollowConditions#CLASS 0#AL RESET_FollowConditions {#CLASS 0
 $CLASS = "Tools|Follow|EXE"
 #AL FollowConditions {
 $dir=%1
@@ -43,7 +43,7 @@ $roomName=%roomname()
 } (($roomID=%lower("LeahOut")) && ($dir="south")) {AHB_MordorGates
 } (($roomID=%lower("MordorOut")) && ($dir="south")) {AHB_MordorGates
 
-//Osgiliath
+//Osgiliath 
 } (($roomName="A bridge over the Morgulduin") && ($dir="north")) {AHB_OsgiliathGate
 } (($roomID=%lower("SouthRoad1")) && ($dir="west")) {AHB_OsgiliathGate
 } (($roomID=%lower("SouthRoad10")) && ($dir="south")) {AHB_OsgiliathGate
@@ -51,7 +51,7 @@ $roomName=%roomname()
 } (($roomID=%lower("EOSGin")) && ($dir="west")) {AHB_OsgiliathUdungul
 } (($roomID=%lower("OsgBridgeW")) && ($dir="east")) {AHB_OsgiliathUdungul
 } (($roomID=%lower("EOSG")) && ($dir="east")) {AHB_MordorGates
-
+  
 //Harondor
 } (($roomName="A bridge over the Morgulduin") && ($dir="south")) {AHB_HarondorMound
 } (%ismember($roomID,%lower("PashaBoar|Mound|Harondor_N1|Harondor_N2|Harondor_N3|Harondor_N4|Harondor_N5|Harondor_N6|Harondor_N7|HaradRoad25")) && (%pos("north",$dir))) {AHB_OsgiliathGate
@@ -69,7 +69,7 @@ $roomName=%roomname()
 } ((%pos("East Arda",%zonename())) && ($roomName="A Bridge") && (%ismember($dir,"north|northeast"))) {AHB_GreyMtnsElvenShield
 } ((%pos("East Arda",%zonename())) && ($roomName="A Bridge") && ($dir="south")) {AHB_MirkwoodSpiderTree
 } ((%pos("East Arda",%zonename())) && ($roomName="The Bridge") && ($dir="east")) {AHB_MirkwoodSpiderTree
-
+  
 //Northwest Rhovanion
 } (($roomName="Entrance to Framsburg") && ($dir="north")) {AHB_FramsburgBarracks
 } (($roomName="Entrance to Framsburg") && (%ismember($dir,"west"))) {AHB_GundabadClimbRubble
@@ -128,7 +128,7 @@ $roomName=%roomname()
 
 //Minas Tirith
 } (($roomName="Inside the gates of Minas Tirith") && ($dir="south")) {AHB_MinasTirithCellar
-
+  
 //Kadar
 } (($roomName="The north gate of Kadar") && ($dir="south")) {AHB_KadarThief
 } (($roomName="The south gate of Kadar") && ($dir="north")) {AHB_KadarThief
@@ -154,4 +154,4 @@ $roomName=%roomname()
 //#IF ((%ismember($roomID,%lower("MorgulGate|MordorGate|WreckOut|WreckIn|CarWell_Out|MordorOut"))) && (@PK)) {#6 {kill  @Tar;#WAIT 500}}
 
 } $CLASS
-#CLASS 0
+#CLASS 0} _Follow#CLASS 0
