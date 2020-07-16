@@ -1,0 +1,291 @@
+#CLASS 0
+$CLASS = "Tools|Follow|EXE"
+
+#AL FollowOn {#VAR FollowBot {1} {} VAR;#CLASS Follow|Settings 1;SysMsg Follow ON!} $CLASS
+#AL FollowOff {#VAR FollowBot {0} {} VAR;#CLASS Follow|Settings 0;SysMsg Follow OFF!} $CLASS
+
+#AL AHB_ZoneDetection {#SW (%pos("Ulkhalad's Vault",%zonename())) {AHB_CarchostPushSlab
+} (%pos("Carchost",%zonename())) {AHB_CarchostWell
+} (%pos("Cirith Ungol",%zonename())) {AHB_CirithUngolBalcony
+} (%pos("Kadar",%zonename())) {AHB_KadarThief
+} (%pos("Bota",%zonename())) {AHB_PetrForestPerathLog
+} (%pos("Framsburg",%zonename())) {AHB_FramsburgBarracks
+}} $CLASS
+
+#AL AHB_MinasMorgulRanger {
+#SW (@PK) {trigger %proper(@Tar) disappears. todo do feel moss,squeeze through crack
+} (@FollowBot) {trigger %proper(@PartyLeader) runs todo do feel moss,squeeze through crack}
+} $CLASS
+
+#AL AHB_MinasMorgulWreckage {
+#SW (@PK) {trigger %proper(@Tar) begins to traverse the wreckage with caution. todo traverse wreckage
+} (@FollowBot) {trigger %proper(@PartyLeader) begins to traverse the wreckage with caution. todo traverse wreckage}
+} $CLASS
+
+
+#AL AHB_MordorGates {
+MyProfileVars
+#IF (%lower(@MyFaction)!=%lower("FR")) {
+#SW (@PK) {trigger An iron door carved in the gate opens and @Tar leaves through it todo 2knock on gate
+} (@FollowBot) {trigger An iron door carved in the gate opens and @PartyLeader leaves through it todo 2knock on gate}} {
+#SW (@PK) {trigger An iron door carved in the gate opens and @Tar leaves through it todo say @MordorPW
+} (@FollowBot) {trigger An iron door carved in the gate opens and @PartyLeader leaves through it todo say @MordorPW}}
+} $CLASS
+
+#AL AHB_GundabadClimbRubble {} $CLASS
+
+#AL AHB_BeornPebbles {
+#SW (@PK) {trigger %proper(@Tar) slips while kicking the pebble and falls off of the ledge todo 2d
+} (@FollowBot) {trigger %proper(@PartyLeader) slips while kicking the pebble and falls off of the ledge todo 2d}
+} $CLASS
+
+#AL AHB_CarchostPushSlab {
+#SW (@PK) {trigger %proper(@Tar) has pushed a secret slab and disappears behind the wall! todo push slab
+} (@FollowBot) {trigger %proper(@PartyLeader) has pushed a secret slab and disappears behind the wall! todo push slab}
+} $CLASS
+
+#AL AHB_UlkhaladsVaultPushSlab {
+#SW (@PK) {trigger trigger The wall revolves, and %proper(@Tar) disappears behind it. todo push slab
+} (@FollowBot) {trigger The wall revolves, and %proper(@PartyLeader) disappears behind it. todo push slab}
+} $CLASS
+
+#AL AHB_CarchostWell {
+#SW (@PK) {trigger %proper(@Tar) falls down into the well!! todo do look in hole,2e,search wall,trigger %proper(@Tar) todo hunt %lower(@Tar),kill %lower(@Tar)
+} (@FollowBot) {trigger %proper(@PartyLeader) falls down into the well!! todo do look in hole,2e,search wall}
+} $CLASS
+
+#AL AHB_CorsairKeepFireplace {
+#SW (@PK) {trigger %proper(@Tar) pushes a stone and suddenly disappears! todo push stone
+} (@FollowBot) {trigger %proper(@PartyLeader) pushes a stone and suddenly disappears! todo push stone}
+} $CLASS
+
+#AL AHB_CorsairKeepThief {
+#SW (@PK) {trigger %proper(@Tar) disappears amongst the bushes. todo do examine bushes,look tunnel,crawl through tunnel
+} (@FollowBot) {trigger %proper(@PartyLeader) disappears amongst the bushes. todo do examine bushes,look tunnel,crawl through tunnel}
+} $CLASS
+
+#AL AHB_CirithUngolBalcony {
+#SW (@PK) {trigger %proper(@Tar) leaps off the balcony todo leap off balcony
+} (@FollowBot) {trigger %proper(@PartyLeader) leaps off the balcony todo leap off balcony}
+} $CLASS
+
+#AL AHB_DunCampClimbRope {
+#SW (@PK) {trigger %proper(@Tar) grabs a rope and scales the fence, disappearing on the other side. todo do remove @wep,climb rope,wield @wep,double wield
+} (@FollowBot) {trigger %proper(@PartyLeader) grabs a rope and scales the fence, disappearing on the other side. todo do remove @wep,climb rope,wield @wep,double wield}
+} $CLASS
+
+#AL AHB_EdorasEmblem {
+#SW (@PK) {trigger %proper(@Tar) places todo place hand on emblem
+} (@FollowBot) {trigger %proper(@PartyLeader) places todo place hand on emblem}
+} $CLASS
+
+#AL AHB_EdorasMaiden {
+#SW (@PK) {trigger %proper(@Tar) reaches out to touch the wooden maiden, who suddenly comes todo touch maiden
+} (@FollowBot) {trigger You follow your leader nowhere. todo touch maiden}
+} $CLASS
+
+#AL AHB_EdorasShrub {
+#SW (@PK) {trigger %proper(@Tar) crawls under the shrubs! todo crawl under shrub
+} (@FollowBot) {trigger %proper(@PartyLeader) crawls under the shrubs! todo crawl under shrub}
+} $CLASS
+
+#AL AHB_EdorasWater {
+#SW (@PK) {trigger %proper(@Tar) dives deep into the pool of cold water! todo do swim pool,wade waterfall
+} (@FollowBot) {trigger %proper(@PartyLeader) dives deep into the pool of cold water! todo do swim pool,wade waterfall}
+} $CLASS
+
+#AL AHB_GreyMtnsElvenShield {
+#SW (@PK) {trigger %proper(@Tar) is swiftly taken by a revolving hidden door. todo turn torch
+} (@FollowBot) {trigger %proper(@PartyLeader) is swiftly taken by a revolving hidden door. todo turn torch}
+} $CLASS
+
+#AL AHB_EreborGetGold {
+#SW (@PK) {trigger %proper(@Tar) dives into the river and disappears from view. todo get gold
+} (@FollowBot) {trigger %proper(@PartyLeader) dives into the river and disappears from view. todo get gold}
+} $CLASS
+
+#AL AHB_EreborThorin {
+#SW (@PK) {trigger %proper(@Tar) pushes a rock, and steps through a secret exit. todo push lower rock
+} (@FollowBot) {trigger %proper(@PartyLeader) pushes a rock, and steps through a secret exit. todo push lower rock}
+} $CLASS
+
+#AL AHB_EreborThrain {
+#SW (@PK) {trigger %proper(@Tar) scrambles over a pile of boulders. todo scramble over boulder
+} (@FollowBot) {trigger %proper(@PartyLeader) scrambles over a pile of boulders. todo scramble over boulder}
+} $CLASS
+
+#AL AHB_FramsburgBarracks {
+#SW (@PK) {trigger %proper(@Tar) knocks on the front door, then goes in with an old lady. todo do knock on door,trigger %proper(@Tar) leaves South. todo ask lady about leave
+} (@FollowBot) {trigger %proper(@PartyLeader) knocks on the front door, then goes in with an old lady. todo do knock on door,trigger %proper(@PartyLeader) leaves South. todo ask lady about leave}
+} $CLASS
+
+#AL AHB_GondorMudSlide {
+#SW (@PK) {trigger %proper(@Tar) dives feet-first onto the mud flow! todo slide down mud
+} (@FollowBot) {trigger %proper(@PartyLeader) dives feet-first onto the mud flow! todo slide down mud}
+} $CLASS
+
+#AL AHB_GondorSapphireSword {
+#SW (@PK) {trigger %proper(@Tar) moves some vines and disappears from sight! todo move vines
+} (@FollowBot) {trigger %proper(@PartyLeader) moves some vines and disappears from sight! todo move vines}
+} $CLASS
+
+#AL AHB_HarondorCottage {
+#SW (@PK) {trigger With a worried look on her face, @Tar jumps into the hole and falls from todo jump down hole
+} (@FollowBot) {trigger With a worried look on her face, @PartyLeader jumps into the hole and falls from todo jump down hole}
+} $CLASS
+
+#AL AHB_HarondorMound {
+#SW (@PK) {trigger %proper(@Tar) vanishes from sight. todo do look mound,examine mound
+} (@FollowBot) {trigger %proper(@PartyLeader) vanishes from sight. todo do look mound,examine mound}
+} $CLASS
+
+#AL AHB_HarondorEnormousScythe {
+#SW (@PK) {trigger %proper(@Tar) slips into the brambles, and vanishes! todo search brambles
+} (@FollowBot) {trigger %proper(@PartyLeader) slips into the brambles, and vanishes! todo search brambles}
+} $CLASS
+
+
+
+#AL AHB_IsengardLivingStaff {
+#SW (@PK) {trigger %proper(@Tar) fades into the shadows. todo climb into crack
+} (@FollowBot) {trigger %proper(@PartyLeader) fades into the shadows. todo climb into crack}
+} $CLASS
+
+#AL AHB_IsengardOrthanc {
+#SW (@PK) {trigger %proper(@Tar) enters the tower of Orthanc. todo look window
+} (@FollowBot) {trigger %proper(@PartyLeader) enters the tower of Orthanc. todo look window}
+} $CLASS
+
+#AL AHB_IthilienTree {
+#SW (@PK) {trigger %proper(@Tar) disappears into the large oak tree. todo climb tree
+} (@FollowBot) {trigger %proper(@Tar) disappears into the large oak tree. todo climb tree}
+} $CLASS
+
+#AL AHB_KadarThief {
+#SW (@PK) {trigger %proper(@Tar) disappears behind a wall. todo do look marks,push wall
+} (@FollowBot) {trigger %proper(@PartyLeader) disappears behind a wall. todo do look marks,push wall}
+} $CLASS
+
+#AL AHB_LinhirTree {
+#SW (@PK) {trigger %proper(@Tar) climbs up a tree, grunting at the effort. todo do climb tree, trigger %proper(@Tar) carefully climbs down the tree. todo climb down
+} (@FollowBot) {trigger %proper(@PartyLeader) climbs up a tree, grunting at the effort. todo do climb tree, trigger You follow your leader down. todo climb down}
+} $CLASS
+
+#AL AHB_LothlorienDWH {
+#SW (@PK) {trigger %proper(@Tar) pushes the brush aside and suddenly drops from sight! todo push brush
+} (@FollowBot) {trigger %proper(@PartyLeader) pushes the brush aside and suddenly drops from sight! todo push brush}
+} $CLASS
+
+#AL AHB_LothlorienWaterfall {
+#SW (@PK) {trigger %proper(@Tar) climbs up the low hill and seems to disappear into the waterfall! todo do 5look waterfall,climb waterfall
+} (@FollowBot) {trigger %proper(@PartyLeader) climbs up the low hill and seems to disappear into the waterfall! todo do 5look waterfall,climb waterfall}
+} $CLASS
+
+#AL AHB_MirkwoodELSTree {
+#SW (@PK) {trigger %proper(@Tar) climbs up the ladder and disappears into the tree. todo do climb ladder,trigger %proper(@Tar) climbs down the rope ladder and disappears toward the ground. todo down
+} (@FollowBot) {trigger %proper(@PartyLeader) climbs up the ladder and disappears into the tree. todo do climb ladder,trigger %proper(@PartyLeader) climbs down the rope ladder and disappears toward the ground. todo down}
+} $CLASS
+
+#AL AHB_MirkwoodSpiderTree {
+#SW (@PK) {trigger %proper(@Tar) shimmies up the tree. todo climb tree
+} (@FollowBot) {trigger %proper(@PartyLeader) shimmies up the tree. todo climb tree}
+} $CLASS
+
+#AL AHB_MistyMtnsShimRing {
+#SW (@PK) {trigger %proper(@Tar) squeezes through the crevice. todo squeeze through crevice
+} (@FollowBot) {trigger %proper(@PartyLeader) squeezes through the crevice. todo squeeze through crevice}
+} $CLASS
+
+
+
+#AL AHB_MoriaHealer {
+#SW (@PK) {trigger %proper(@Tar) walks behind the counter and disappears from sight. todo do search behind counter,crawl into hole
+} (@FollowBot) {trigger %proper(@PartyLeader) walks behind the counter and disappears from sight. todo do search behind counter,crawl into hole}
+} $CLASS
+
+#AL AHB_MoriaMoss {
+#SW (@PK) {trigger %proper(@Tar) disappears from view. todo dig in dust
+} (@FollowBot) {trigger %proper(@PartyLeader) disappears from view. todo dig in dust}
+} $CLASS
+
+#AL AHB_MinasTirithCellar {
+#SW (@PK) {trigger %proper(@Tar) leaps todo leap into cellar
+} (@FollowBot) {trigger %proper(@PartyLeader) leaps todo leap into cellar}
+} $CLASS
+
+#AL AHB_OsgiliathGate {
+#SW (@PK) {trigger %proper(@Tar) pounds on the gate and is escorted within. todo knock on gates
+} (@FollowBot) {trigger You follow your leader gate. todo knock on gates}
+} $CLASS
+
+//No Osgiliath guards:
+//Mammoth leaves gate, driving a warg-drawn huge wagon.
+//You follow your leader gate.
+//The gate is slammed into your face.
+//You are unable to follow Mammoth further.
+
+#AL AHB_PelargirBell {
+#SW (@PK) {trigger Gaena forcefully shoves @Tar through the north door! todo n
+} (@FollowBot) {trigger Gaena forcefully shoves @PartyLeader through the north door! todo n}
+} $CLASS
+
+#AL AHB_PelargirTable {
+#SW (@PK) {trigger %proper(@Tar) swiftly jumps over the table and reaches the todo jump over table} {trigger %proper(@PartyLeader) swiftly jumps over the table and reaches the todo jump over table}
+} $CLASS
+
+#AL AHB_PetrForestPerathLog {
+#SW (@PK) {trigger %proper(@Tar) does something and falls through the ground! todo uproot log
+} (@FollowBot) {trigger %proper(@PartyLeader) does something and falls through the ground! todo uproot log}
+} $CLASS
+
+#AL AHB_RhovEmeraldShield {
+#SW (@PK) {trigger %proper(@Tar) crawls on all fours and disappears behind the shrub! todo crawl behind shrub
+} (@FollowBot) {trigger %proper(@PartyLeader) crawls on all fours and disappears behind the shrub! todo crawl behind shrub}
+} $CLASS
+
+#AL AHB_RhovSapphireStaff {
+#SW (@PK) {trigger %proper(@Tar) climbs up the oak tree! todo do climb tree,trigger %proper(@Tar) climbs down the tree. todo climb down
+} (@FollowBot) {trigger %proper(@PartyLeader) climbs up the oak tree! todo do climb tree,trigger %proper(@PartyLeader) climbs down the tree. todo climb down}
+} $CLASS
+
+#AL AHB_RhunWell {
+#SW (@PK) {trigger %proper(@Tar) quickly climbs into the well and disappears from sight. todo descend down stairs
+} (@FollowBot) {trigger %proper(@PartyLeader) quickly climbs into the well and disappears from sight. todo descend down stairs}
+} $CLASS
+
+#AL AHB_RivendellBell {
+#SW (@PK) {trigger %proper(@Tar) rings the giant bell, sending an earsplitting todo ring bell
+} (@FollowBot) {trigger %proper(@PartyLeader) rings the giant bell, sending an earsplitting todo ring bell}
+} $CLASS
+
+#AL AHB_RivendellVines {
+#SW (@PK) {trigger %proper(@Tar) disappears between the vines! todo push vines aside
+} (@FollowBot) {trigger %proper(@PartyLeader) disappears between the vines! todo push vines aside}
+} $CLASS
+
+#AL AHB_OsgiliathUdungul {
+#SW (@PK) {trigger %proper(@Tar) scrambles through the broken window. todo climb through window
+} (@FollowBot) {trigger %proper(@PartyLeader) scrambles through the broken window. todo climb through window}
+} $CLASS
+
+#AL AHB_TelsharCrypt {
+#SW (@PK) {trigger %proper(@Tar) leaps into the sarcophagus, and the lid falls back in place with a THUD! todo do lift lid,leap hole
+} (@FollowBot) {trigger %proper(@PartyLeader) leaps into the sarcophagus, and the lid falls back in place with a THUD! todo do lift lid,leap hole}
+} $CLASS
+
+#AL AHB_ThranduilsGate {
+#SW (@PK) {trigger %proper(@Tar) fades into the shadows. todo knock on gates
+} (@FollowBot) {trigger %proper(@PartyLeader) fades into the shadows. todo knock on gates}
+} $CLASS
+
+#AL AHB_UmbarOakBow {
+#SW (@PK) {trigger %proper(@Tar) climbs up the wreckage. todo climb up wreckage.
+} (@FollowBot) {trigger You follow your leader @PartyLeader scales up the wreckage. todo climb up wreckage}
+} $CLASS
+
+#AL AHB_Valacirca {
+#SW (@PK) {trigger %proper(@Tar) disappears into the brush. todo slip through undergrowth
+} (@FollowBot) {trigger You are unable to follow @PartyLeader further. todo slip through undergrowth}
+} $CLASS
+
+#CLASS 0

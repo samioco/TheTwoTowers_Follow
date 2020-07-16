@@ -1,0 +1,157 @@
+#CLASS 0
+$CLASS = "Tools|Follow|EXE"
+#AL FollowConditions {
+$dir=%1
+$roomID=%lower(%roomid())
+$roomName=%roomname()
+
+//Mordor
+#SW (($roomID=%lower("MorgulFork")) && ($dir="west")) {AHB_MordorGates
+} (($roomID=%lower("CUOut")) && ($dir="southwest")) {AHB_MordorGates
+} (($roomID=%lower("MorgulFork")) && ($dir="north")) {AHB_CirithUngolBalcony
+} (($roomID=%lower("Isen")) && ($dir="north")) {AHB_MordorGates
+} (($roomID=%lower("UdunJunction")) && ($dir="north")) {AHB_MordorGates
+} (($roomID=%lower("Car2")) && ($dir="up")) {AHB_CarchostPushSlab
+} (($roomID=%lower("CarOut")) && ($dir="northwest")) {AHB_CarchostWell
+} (($roomID=%lower("Wormholes")) && ($dir="northwest")) {AHB_CarchostWell
+} (($roomID=%lower("Carchost")) && (%pos("south",$dir))) {AHB_MordorGates
+} (($roomID=%lower("Narchost")) && (%pos("south",$dir))) {AHB_MordorGates
+} (($roomID=%lower("NarchostJunction")) && ($dir="west")) {AHB_MordorGates
+} (($roomID=%lower("CarchostJunction1")) && (%pos("west",$dir))) {AHB_CarchostWell
+} (($roomID=%lower("CarchostJunction2")) && (%pos("west",$dir))) {AHB_CarchostWell
+} (($roomID=%lower("SlabOut")) && ($dir="east")) {AHB_CarchostWell
+} (($roomID=%lower("Car2")) && ($dir="up")) {AHB_CarchostPushSlab
+
+//Barad-dur
+  //Do not follow into BD basement
+} (($roomID=%lower("BD1W")) && ($dir="east") && (@PK)) {do trigger off,hunt off
+
+//Minas Morgul
+} (($roomID=%lower("WreckOut")) && ($dir="northwest")) {AHB_OsgiliathGate
+} (($roomName="Inside the main gates of Minas Morgul") && ($dir="gates")) {AHB_MinasMorgulWreckage
+} ((%ismember($roomID,%lower("MM1EastGate|MM1WestGate"))) && (%pos("north",$dir))) {AHB_MinasMorgulWreckage
+} (($roomName="The entrance to a dark pit") && ($dir="west")) {AHB_MinasMorgulWreckage
+} (($roomName="The entrance to a dark pit") && ($dir="down")) {AHB_MinasMorgulRanger
+} (($roomID=%lower("MMSacOut")) && (%pos("east",$dir))) {AHB_MinasMorgulRanger
+
+
+//South Rhovanion
+} (($roomName="A crossroads in the Morgul Road") && ($dir="south")) {AHB_MinasMorgulWreckage
+} (($roomName="A crossroads in the Morgul Road") && ($dir="northeast")) {AHB_MordorGates
+} (($roomID=%lower("SouthRoad2")) && ($dir="north")) {AHB_MordorGates
+} (($roomID=%lower("SouthRoad2")) && ($dir="east")) {AHB_MinasMorgulWreckage
+} (($roomID=%lower("LeahOut")) && ($dir="south")) {AHB_MordorGates
+} (($roomID=%lower("MordorOut")) && ($dir="south")) {AHB_MordorGates
+
+//Osgiliath
+} (($roomName="A bridge over the Morgulduin") && ($dir="north")) {AHB_OsgiliathGate
+} (($roomID=%lower("SouthRoad1")) && ($dir="west")) {AHB_OsgiliathGate
+} (($roomID=%lower("SouthRoad10")) && ($dir="south")) {AHB_OsgiliathGate
+} (($roomName="In front of the Morgul gate") && ($dir="west")) {AHB_OsgiliathGate
+} (($roomID=%lower("EOSGin")) && ($dir="west")) {AHB_OsgiliathUdungul
+} (($roomID=%lower("OsgBridgeW")) && ($dir="east")) {AHB_OsgiliathUdungul
+} (($roomID=%lower("EOSG")) && ($dir="east")) {AHB_MordorGates
+
+//Harondor
+} (($roomName="A bridge over the Morgulduin") && ($dir="south")) {AHB_HarondorMound
+} (%ismember($roomID,%lower("PashaBoar|Mound|Harondor_N1|Harondor_N2|Harondor_N3|Harondor_N4|Harondor_N5|Harondor_N6|Harondor_N7|HaradRoad25")) && (%pos("north",$dir))) {AHB_OsgiliathGate
+} (($roomName="The north gate of Kadar") && (%pos("north",$dir))) {AHB_HarondorMound
+} (($roomID=%lower("EnormousScythe")) && ($dir="path")) {AHB_HarondorEnormousScythe
+
+//North Rhovanion
+} (($roomID=%lower("Rhos")) && ($dir="southwest")) {AHB_RhovSapphireStaff
+} (($roomID=%lower("HighPass")) && (%ismember($dir,"east|south"))) {AHB_RhovSapphireStaff
+} (($roomName="Outside Rhosgobel") && ($dir="west")) {AHB_BeornPebbles
+} (($roomName="Outside Rhosgobel") && ($dir="north")) {AHB_BeornPebbles
+
+//Northeast Rhovanion
+} ((%pos("East Arda",%zonename())) && ($roomName="A Bridge") && ($dir="stairs")) {AHB_ThranduilsGate
+} ((%pos("East Arda",%zonename())) && ($roomName="A Bridge") && (%ismember($dir,"north|northeast"))) {AHB_GreyMtnsElvenShield
+} ((%pos("East Arda",%zonename())) && ($roomName="A Bridge") && ($dir="south")) {AHB_MirkwoodSpiderTree
+} ((%pos("East Arda",%zonename())) && ($roomName="The Bridge") && ($dir="east")) {AHB_MirkwoodSpiderTree
+
+//Northwest Rhovanion
+} (($roomName="Entrance to Framsburg") && ($dir="north")) {AHB_FramsburgBarracks
+} (($roomName="Entrance to Framsburg") && (%ismember($dir,"west"))) {AHB_GundabadClimbRubble
+
+//Rhun
+} (($roomName="Outskirts of Alzhak Urk") && ($dir="north")) {AHB_RhunWell
+} (($roomName="A ford on the Carnen River") && ($dir="east")) {AHB_RhunWell
+
+//Rohan
+} (($roomName="Dunlending Camp") && ($dir="east")) {AHB_DunCampClimbRope
+} (($roomName="Isen Ford") && (%pos("west",$dir))) {AHB_IsengardOrthanc
+} (($roomName="The north gate") && ($dir="south")) {AHB_EdorasEmblem
+} (($roomName="Before the Golden Hall") && ($dir="up")) {AHB_EdorasMaiden
+
+//Anorien
+} (($roomName="West of Osgiliath") && (%ismember($dir,"north|west|southwest"))) {AHB_GondorSapphireSword
+} (($roomName="Outside the Rammas Echor") && (%ismember($dir,"north|west|northwest"))) {AHB_GondorSapphireSword
+
+//Lothlorien
+} (($roomName="North Undeep") && ($dir="north")) {AHB_Valacirca
+} (($roomName="Celebrant River") && ($dir="west")) {AHB_Valacirca
+} (($roomName="Celebrant River") && (%ismember($dir,"north|east"))) {AHB_LothlorienWaterfall
+} (($roomName="A ford over the Gladden River") && (%ismember($dir,"south|east"))) {AHB_LothlorienWaterfall
+} (($roomName="Cerin Amroth") && ($dir="west")) {AHB_LothlorienWaterfall
+} (($roomName="Cerin Amroth") && ($dir="north")) {AHB_LothlorienDWH
+} (($roomName="A cottage yard") && ($dir="enter")) {AHB_LothlorienDWH
+
+//Gondor
+} (($roomName="Outside the gates of Pelargir") && ($dir="gate")) {AHB_PelargirTable
+} (($roomName="Linhir") && ($dir="city")) {AHB_LinhirTree
+} (($roomName="Linhir") && (%ismember($dir,"west|north"))) {AHB_GondorMudSlide
+} (($roomName="The south end of Ethring") && (%ismember($dir,"south|southeast|east"))) {AHB_GondorMudSlide
+
+} (%pos("Pelargir",%zonename())) {
+//Pelargir
+} (($roomID=%lower("FingerlessGloves_Front")) && ($dir="west")) {AHB_PelargirBell
+} (($roomID=%lower("PelH_Front")) && ($dir="west")) {AHB_PelargirBell
+} (($roomID=%lower("PortUmbarBridge_Crossroads")) && ($dir="north")) {AHB_PelargirBell
+
+//Moria
+} ((%ismember($roomID,%lower("Moria3NJunction|Moria3SJunction"))) && ($dir="east")) {AHB_MoriaHealer
+} (($roomID=%lower("Moria3NEJunction")) && (%pos("west",$dir))) {AHB_MoriaHealer
+} (($roomID=%lower("Moria2F")) && ($dir="northeast")) {AHB_MoriaMoss
+} (($roomID=%lower("Moria3FMid")) && ($dir="east")) {AHB_MoriaMoss
+} (($roomID=%lower("Moria5W")) && ($dir="east")) {AHB_MoriaMoss
+} (($roomID=%lower("CMAbort")) && ($dir="north")) {AHB_MoriaMoss
+} (($roomID=%lower("Moria4E")) && ($dir="east")) {AHB_MoriaMoss
+} (($roomID=%lower("Moria2SJunction")) && ($dir="north")) {AHB_MoriaMoss
+
+//Erebor
+} (($roomID=%lower("Ere3")) && ($dir="up")) {AHB_EreborGetGold
+} (($roomName="A cobweb filled room") && ($dir="east")) {AHB_EreborThorin
+} (($roomID=%lower("Ere5")) && ($dir="northwest")) {AHB_EreborThorin
+} (($roomID=%lower("Ere5")) && ($dir="up")) {AHB_EreborGetGold
+} (($roomID=%lower("Thorin")) && ($dir="west")) {AHB_EreborThrain
+
+//Minas Tirith
+} (($roomName="Inside the gates of Minas Tirith") && ($dir="south")) {AHB_MinasTirithCellar
+
+//Kadar
+} (($roomName="The north gate of Kadar") && ($dir="south")) {AHB_KadarThief
+} (($roomName="The south gate of Kadar") && ($dir="north")) {AHB_KadarThief
+
+//Umbar
+} (($roomName="A steep path along the cliffs of Umbar") && ($dir="southwest")) {AHB_CorsairKeepThief
+} (($roomName="A wooden drawbridge") && ($dir="east")) {AHB_CorsairKeepThief
+} (($roomName="A wooden drawbridge") && ($dir="west")) {AHB_CorsairKeepFireplace
+} (($roomName="The entrance to the City of the Corsairs") && ($dir="trail")) {AHB_CorsairKeepThief
+} (($roomName="The entrance to the City of the Corsairs") && ($dir="uphill")) {AHB_CorsairKeepFireplace
+} (($roomName="Shaman's chamber") && ($dir="east")) {AHB_CorsairKeepFireplace
+} (($roomName="The entrance to the City of the Corsairs") && ($dir="east")) {AHB_UmbarOakBow
+
+//Rivendell
+} (($roomName="A stone bridge") && ($dir="south")) {AHB_RivendellVines
+} (($roomName="A stone bridge") && (%ismember($dir,"north|northeast|east"))) {AHB_RivendellBell
+} (($roomID=%lower("HighPassFall")) && ($dir="west")) {AHB_RivendellBell
+} (($roomName="The Ford of Bruinen") && ($dir="west")) {AHB_MistyMtnsShimRing
+
+//Telshar
+} (($roomName="Near the gate of Telshar") && ($dir="northeast")) {AHB_TelsharCrypt
+}
+//#IF ((%ismember($roomID,%lower("MorgulGate|MordorGate|WreckOut|WreckIn|CarWell_Out|MordorOut"))) && (@PK)) {#6 {kill  @Tar;#WAIT 500}}
+
+} $CLASS
+#CLASS 0
